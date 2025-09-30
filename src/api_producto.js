@@ -3,8 +3,14 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const cors = require("cors");
 
 const app = express();
+app.use(cors({
+  origin: 'http://localhost:4200', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true 
+}));
 app.use(bodyParser.json());
 
 const SECRET_KEY = "miclaveultrasecreta";
@@ -258,7 +264,7 @@ const swaggerOptions = {
       },
     },
   },
-  apis: ["./api_productos_con_auth_express_jwt.js"],
+  apis: ["./api_productos.js"],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
