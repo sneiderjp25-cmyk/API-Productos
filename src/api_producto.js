@@ -264,7 +264,7 @@ const swaggerOptions = {
       },
     },
   },
-  apis: ["./api_productos.js"],
+  apis: ["./src/api_producto.js"],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
